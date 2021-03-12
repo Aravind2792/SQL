@@ -60,7 +60,7 @@ on dp.dept_no=dm.dept_no;
 /* notice that null values were not considered during inner joins*/
 /* also d002 and d003 from department_manager_dup were not joined  and d010 and d011 from vice versa tables*/
 #another example
-select dept_manager_dup.emp_no,dept_manager_dup.dept_no,employees.first_name,employees.last_name,employees.hire_date
+select dept_manager_dup.emp_no,dept_manager_dup.dept_no,employees.first_name,employees.last_name,employees.hire_date #mention the col names that need to be reflected in the joint
 from 
 dept_manager_dup
 inner join 
@@ -84,7 +84,7 @@ on departments_dup.dept_no=dept_manager_dup.dept_no;
 /* notice that there are duplicate rows*/
 /* to eliminate this use group by*/
 select departments_dup.dept_no, dept_manager_dup.emp_no,dept_manager_dup.from_date
-from departments_dup
+ from departments_dup
 inner join dept_manager_dup
 on departments_dup.dept_no=dept_manager_dup.dept_no
 group by emp_no;

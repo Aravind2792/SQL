@@ -53,11 +53,17 @@ create table if not exists department_dup(
  Select *  from department_dup;
  
  #with rows from another table
+ drop table department_dup_cop;
  create table  if not exists department_dup_cop (
  dept_no char(4) not null,
-dept_name varchar(10) not null
+dept_name varchar(20) not null
 )
 select * from departments
 ; 
+select * from department_dup_cop order by dept_no;
+# adding another row 
+insert into department_dup_cop(
+dept_no,dept_name)
+values ('d010','Business Analysis');
 select * from department_dup_cop order by dept_no;
 
